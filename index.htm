@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/deviselling.css">
+  <title>deviselling</title>
+  <script>
+    window.onload = function () {
+      var gif = document.getElementById('myGif');
+      var gifDuration = 21000;
+
+      var skipButton = document.createElement("button");
+      skipButton.className = "skipButton";
+      skipButton.onclick = loadInnerHtml;
+      document.body.appendChild(skipButton);
+
+      setTimeout(function () {
+        loadInnerHtml();
+      }, gifDuration);
+    };
+
+    function loadInnerHtml() {
+      var uniqueTime = new Date().getTime();
+      document.body.innerHTML = `
+        <div class="window">
+            <img src="assets/screenempty.png" class="backgroundImage">
+            <a href="birdeye.so"><img src="assets/chart.png" class="chartImage"></a>
+            <a href="solscan.io"><img src="assets/sscan.png" class="solscanImage"></a>
+            <a href="https://t.me/devsellingsol"><img src="assets/telegram.png" class="telegramImage"></a>
+            <a href="https://twitter.com/devsellingsol"><img src="assets/twitter.png" class="twitterImage"></a>
+            <p class="devText">DEV IS SELLING</p>
+            <p class="devCa">Launching on pump.fun</p>
+            <button id="replayButton" onclick="replayGif()" class="replayButton"></button>
+        </div>    
+    `;
+    }
+
+    function replayGif() {
+      window.location.href += '?nocache=' + (new Date()).getTime();
+      window.location.reload();
+    }
+  </script>
+</head>
+
+<body style="position: relative;">
+  <img id="playGif" class="gifProperty" src="assets/devisellingpng.gif">
+</body>
+
+</html>
